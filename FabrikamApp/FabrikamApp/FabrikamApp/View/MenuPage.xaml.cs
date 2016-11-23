@@ -17,12 +17,12 @@ namespace FabrikamApp.View
         public MenuPage()
         {
             InitializeComponent();
-            
+            ViewMenu();
             //add an event to the ListViewSpeakers to get notified when an item is selected
             //ListViewMenu.ItemSelected += ListViewMenu_ItemSelected;
         }
 
-        private async void ViewMenu(Object sender, System.EventArgs e)
+        private async void ViewMenu()
         {
             List<Menu> menu = await AzureServices.AzureServicesInstance.GetMenu();
             ListViewMenu.ItemsSource = menu;

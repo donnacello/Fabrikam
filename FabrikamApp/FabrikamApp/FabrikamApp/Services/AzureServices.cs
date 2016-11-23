@@ -20,7 +20,7 @@ namespace FabrikamApp.Services
 
         private AzureServices()
         {
-            this.client = new MobileServiceClient("http://donnamoodtimeline.azurewebsites.net");
+            this.client = new MobileServiceClient("http://fabrikammenusuggestions.azurewebsites.net");
             this.menuTable = this.client.GetTable<Menu>();
         }
 
