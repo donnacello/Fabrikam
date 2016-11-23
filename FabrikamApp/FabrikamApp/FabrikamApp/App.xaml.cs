@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FabrikamApp.View;
+using FabrikamApp.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,25 +11,36 @@ namespace FabrikamApp
 {
     public partial class App : Application
     {
+        public static NavigationPage NavigationPage { get; private set; }
+        public static RootPage RootPage;
+
+        public static bool MenuIsPresented
+        {
+            get
+            {
+                return RootPage.IsPresented;
+            }
+            set
+            {
+                RootPage.IsPresented = value;
+            }
+        }
+
         public App()
         {
-            InitializeComponent();
-            MainPage = new FabrikamApp.MainPage();
+            var navPage = new NavPage();
+            NavigationPage = new NavigationPage(new HomePage());
+            RootPage = new RootPage();
+            RootPage.Master = navPage;
+            RootPage.Detail = NavigationPage;
+            MainPage = RootPage;
         }
+    }
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
-
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
-
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
+    public static class ViewModelLocator
+    {
+        static MenuViewModel menuVM;
+        public static MenuViewModel MenuViewModel
+            => menuVM ?? (menuVM = new MenuViewModel());
     }
 }

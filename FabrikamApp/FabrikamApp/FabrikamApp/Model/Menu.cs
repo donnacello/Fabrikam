@@ -12,10 +12,10 @@ namespace FabrikamApp.Model
         public string Name { get; set; }
         public string Description { get; set; }
         public string Category { get; set; }
-        public string Price { get; set; }
+        public double Price { get; set; }
 
         //Azure information for version
-        //[Microsoft.WindowsAzure.MobileServices.Version]
-        //public string AzureVersion { get; set; }
+        [Microsoft.WindowsAzure.MobileServices.Version]
+        public string AzureVersion { get; set; }
     }
 }
