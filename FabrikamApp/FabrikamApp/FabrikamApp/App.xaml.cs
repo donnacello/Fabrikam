@@ -12,7 +12,6 @@ namespace FabrikamApp
         public App()
         {
             InitializeComponent();
-
             MainPage = new FabrikamApp.MainPage();
         }
 

@@ -1,0 +1,14 @@
+Name,Description,Category,Price
+Wrap,Praesent aliquet massa eget libero pharetra tempus.,Meal,7
+Pie,"Integer eu metus ultrices, tempus neque eget, ultricies lorem.",Meal,7
+Burger,"Mauris dictum erat vitae tortor varius, eget rhoncus dolor vehicula.",Meal,7
+Soup,Curabitur eget purus ut tellus sagittis euismod dapibus sed mi.,Meal,7
+Salad,Etiam ut ipsum non leo suscipit vulputate.,Meal,7
+Muffin,"Nunc a sem feugiat, auctor nunc eget, sagittis ligula.",Snack,5
+Sorbet,Quisque laoreet ligula eget tincidunt aliquam.,Snack,5
+Chips,Fusce sed felis vitae dolor porttitor iaculis quis id nibh.,Snack,5
+Wedges,Integer condimentum felis eu diam sagittis posuere.,Snack,5
+Lemonade,Integer auctor urna sit amet augue ullamcorper imperdiet sed vitae ex.,Drinks,4
+Apple Juice,"Vestibulum luctus lorem sed ante feugiat, quis laoreet felis hendrerit.",Drinks,4
+Tea,Praesent sodales nulla sed nunc ullamcorper tempus.,Drinks,4
+Coffee,"Sed ultricies orci non dolor tempus, nec maximus quam ornare.",Drinks,4
