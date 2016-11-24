@@ -4,13 +4,23 @@
              xmlns:local="clr-namespace:FabrikamApp"
              x:Class="FabrikamApp.HomePage">
   <ContentPage.Content>
-    <!--add a few vertically-stacked controls to the page-->
-    <StackLayout Spacing="0">
-      <Label Text="Welcome to Xamarin Forms!" />
-      <!--add a Button that has a binding to the menucommand-->
-      <Button Text="View Menu" Command="{Binding GoMenuCommand}"/>
-      <!--display a loading bar when we are gathering data from the server-->
-      <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
-    </StackLayout>
+    <Grid>
+      <Image Source="fabrikam_bg.png" Aspect="AspectFill" />
+      <!--add a few vertically-stacked controls to the page-->
+      <StackLayout Spacing="0">
+        <Label Text="Welcome to FabrikamApp!" x:Name="welcomeText"/>
+        <Image Source="fabrikam_logo.png" />
+        <!--add a Button that has a binding to the menucommand-->
+        <!--Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" Clicked="loginButton_Clicked"/-->
+        <Button x:Name="loginButton"
+                Text = "Login with Facebook"
+                   TextColor="White"
+                   BackgroundColor="#01579B"
+                   Clicked="loginButton_Clicked"/>
+        <Button Text="View Menu" Command="{Binding GoMenuCommand}"/>
+        <!--display a loading bar when we are gathering data from the server-->
+        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
+      </StackLayout>
+    </Grid>
   </ContentPage.Content>
 </ContentPage>

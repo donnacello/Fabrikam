@@ -12,13 +12,13 @@ using System.Threading.Tasks;
 
 namespace FabrikamApp.Services
 {
-    class AzureServices
+    public class AzureServices
     {
         private static AzureServices instance;
         private MobileServiceClient client;
         private IMobileServiceTable<Menu> menuTable;
 
-        private AzureServices()
+        public AzureServices()
         {
             this.client = new MobileServiceClient("http://fabrikammenusuggestions.azurewebsites.net");
             this.menuTable = this.client.GetTable<Menu>();

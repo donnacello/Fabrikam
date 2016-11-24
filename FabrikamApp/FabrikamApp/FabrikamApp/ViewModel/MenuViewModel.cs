@@ -53,25 +53,22 @@ namespace FabrikamApp.ViewModel
 
         void GoToMenu(object obj)
         {
-            App.RootPage.Detail = new NavigationPage(new MenuPage());
+            App.RootPage.Detail = new NavigationPage(new MenuPage()){
+                                    BarBackgroundColor = Color.Teal};
             App.MenuIsPresented = false;
-            
-            //GetMenuCmd = new Command(
-            //    //invoke when the command is executed
-            //    async () => await GetMenu(),
-            //    //determines whether the command is enabled
-            //    () => !IsBusy);
         }
 
         void GoToHome(object obj)
         {
-            App.RootPage.Detail = new NavigationPage(new HomePage());
+            App.RootPage.Detail = new NavigationPage(new HomePage()){
+                                    BarBackgroundColor = Color.Teal};
             App.MenuIsPresented = false;
         }
 
         void GoToSuggestions(object obj)
         {
-            App.RootPage.Detail = new NavigationPage(new SuggestionsPage());
+            App.RootPage.Detail = new NavigationPage(new SuggestionsPage()) {
+                                    BarBackgroundColor = Color.Teal};
             App.MenuIsPresented = false;
         }
 

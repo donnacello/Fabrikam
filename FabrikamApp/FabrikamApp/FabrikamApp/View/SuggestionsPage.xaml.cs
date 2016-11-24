@@ -1,4 +1,5 @@
-﻿using Plugin.Media;
+﻿using Microsoft.ProjectOxford.Emotion;
+using Plugin.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace FabrikamApp.View
 {
     public partial class SuggestionsPage : ContentPage
     {
+        
         public SuggestionsPage()
         {
             InitializeComponent();
@@ -37,14 +39,33 @@ namespace FabrikamApp.View
             if (file == null)
                 return;
 
-            //////////////////////////////////////////
-
-            image.Source = ImageSource.FromStream(() =>
+            try
             {
-                var stream = file.GetStream();
-                file.Dispose();
-                return stream;
-            });
+                SPcircle.IsRunning = true;
+                string emotionKey = "b728b031f2874a729b65ffb6f3ed5fb8";
+                EmotionServiceClient emotionClient = new EmotionServiceClient(emotionKey);
+                var results = await emotionClient.RecognizeAsync(file.GetStream());
+
+                double temp = results[0].Scores.Happiness;
+                double percent = temp * 100;
+
+                await DisplayAlert("Happiness Level","You are "+ percent + "% happy","Ok");
+
+                image.Source = ImageSource.FromStream(() =>
+                {
+                    var stream = file.GetStream();
+                    file.Dispose();
+                    return stream;
+                });
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Error", ex.Message, "OK");
+            }
+            finally
+            {
+                IsBusy = false;
+            }
         }
 
 

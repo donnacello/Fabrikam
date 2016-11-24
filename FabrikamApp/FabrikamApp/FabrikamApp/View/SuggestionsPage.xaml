@@ -6,6 +6,7 @@
   <ContentPage.Content>
     <StackLayout BackgroundColor="White">
       <Button Text="Suggest from Smile" TextColor="White" BackgroundColor="Green" Clicked="TakePicture_Clicked" />
+      <ActivityIndicator x:Name ="SPcircle" IsRunning="False" Color="Teal"/>
       <Image x:Name="image" VerticalOptions="Center" HeightRequest="200" />
     </StackLayout>
   </ContentPage.Content>
