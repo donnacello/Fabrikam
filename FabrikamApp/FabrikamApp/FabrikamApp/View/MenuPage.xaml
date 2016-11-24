@@ -6,9 +6,7 @@
   <!--add a few vertically-stacked controls to the page-->
   
   <StackLayout Spacing="0">
-
-    <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
-    
+    <Button Text="Click here for recommendations" TextColor="White" BackgroundColor="Green" Command="{Binding GoSuggestionsCommand}" />
     <!--ListView that binds to the Menu collection to display all of the items. 
     We can use a special property called x:Name="" to name any control:-->
     <ListView x:Name="ListViewMenu"
@@ -21,5 +19,7 @@
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
+
+    
   </StackLayout>
 </ContentPage>

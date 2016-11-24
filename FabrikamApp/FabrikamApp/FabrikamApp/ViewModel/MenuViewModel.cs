@@ -26,6 +26,7 @@ namespace FabrikamApp.ViewModel
 
         public ICommand GoMenuCommand { get; set; }
         public ICommand GoHomeCommand { get; set; }
+        public ICommand GoSuggestionsCommand { get; set; }
         public Command GetMenuCmd { get; set; }
 
         public ObservableCollection<Menu> MenuList { get; set; }
@@ -47,6 +48,7 @@ namespace FabrikamApp.ViewModel
             MenuList = new ObservableCollection<Menu>();
             GoMenuCommand = new Command(GoToMenu);
             GoHomeCommand = new Command(GoToHome);
+            GoSuggestionsCommand = new Command(GoToSuggestions);
         }
 
         void GoToMenu(object obj)
@@ -64,6 +66,12 @@ namespace FabrikamApp.ViewModel
         void GoToHome(object obj)
         {
             App.RootPage.Detail = new NavigationPage(new HomePage());
+            App.MenuIsPresented = false;
+        }
+
+        void GoToSuggestions(object obj)
+        {
+            App.RootPage.Detail = new NavigationPage(new SuggestionsPage());
             App.MenuIsPresented = false;
         }
 
