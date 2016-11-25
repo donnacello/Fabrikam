@@ -6,11 +6,14 @@
     <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
   </ContentPage.Padding>
   <ContentPage.Content>
-    <StackLayout BackgroundColor="White">
-      
+    <StackLayout BackgroundColor="Transparent">
+      <Label Text=" "/>
+      <Image Source="fabrikam_logo.png" HeightRequest="80"/>
+      <Label Text=" "/>
       <Button Text="Home" TextColor="White" BackgroundColor="Green" Command="{Binding GoHomeCommand}" />
       <Button Text="Menu" TextColor="White" BackgroundColor="Green" Command="{Binding GoMenuCommand}" />
       <Button Text="Suggestions" TextColor="White" BackgroundColor="Red" Command="{Binding GoSuggestionsCommand}" />
+      <Button Text="Contact Us" TextColor="White" BackgroundColor="Green" Command="{Binding GoContactCommand}" />
     </StackLayout>
   </ContentPage.Content>
 </ContentPage>

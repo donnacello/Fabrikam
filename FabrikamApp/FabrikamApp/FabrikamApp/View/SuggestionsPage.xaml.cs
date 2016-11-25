@@ -1,4 +1,6 @@
-﻿using Microsoft.ProjectOxford.Emotion;
+﻿using FabrikamApp.Model;
+using FabrikamApp.Services;
+using Microsoft.ProjectOxford.Emotion;
 using Plugin.Media;
 using System;
 using System.Collections.Generic;
@@ -17,8 +19,9 @@ namespace FabrikamApp.View
         public SuggestionsPage()
         {
             InitializeComponent();
-            
         }
+
+        double happinessPct;
 
         private async void TakePicture_Clicked(object sender, System.EventArgs e)
         {
@@ -47,9 +50,9 @@ namespace FabrikamApp.View
                 var results = await emotionClient.RecognizeAsync(file.GetStream());
 
                 double temp = results[0].Scores.Happiness;
-                double percent = temp * 100;
-
-                await DisplayAlert("Happiness Level","You are "+ percent + "% happy","Ok");
+                happinessPct = temp * 100;
+                //await DisplayAlert("Happiness Level","You are "+ percent + "% happy","Ok");
+                ViewRex();
 
                 image.Source = ImageSource.FromStream(() =>
                 {
@@ -60,12 +63,28 @@ namespace FabrikamApp.View
             }
             catch (Exception ex)
             {
-                await DisplayAlert("Error", ex.Message, "OK");
+                await DisplayAlert("Error", "Please take another photo", "OK");
             }
             finally
             {
-                IsBusy = false;
+                SPcircle.IsRunning = false;
+                image.Source = "";
+                smileSuggest.Text = "Recommend me another one!";
             }
+        }
+
+
+        private async void ViewRex()
+        {
+            List<Menu> rex = await AzureServices.AzureServicesInstance.GetMenuRex(happinessPct);
+            Random rnd = new Random();
+            int r = rnd.Next(rex.Count);
+            string rexNameValue = rex[r].Name;
+            string rexDescValue = rex[r].Description;
+            //await DisplayAlert("Try the " + rexNameValue + "!", rexDescValue, "Ok");
+            rexName.Text = "Try the " + rexNameValue + "!";
+            rexDesc.Text = rexDescValue;
+            rexPhoto.Source = rex[r].Photo;
         }
 
 

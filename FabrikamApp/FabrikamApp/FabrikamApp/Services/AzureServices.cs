@@ -4,6 +4,7 @@ using Microsoft.WindowsAzure.MobileServices.SQLiteStore;
 using Microsoft.WindowsAzure.MobileServices.Sync;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -45,6 +46,24 @@ namespace FabrikamApp.Services
         public async Task<List<Menu>> GetMenu()
         {
             return await this.menuTable.ToListAsync();
+        }
+
+        public async Task<List<Menu>> GetMenuRex(double num)
+        {
+            string category;
+            if (num > 50)
+            {
+                category = "Meal";
+            }else
+            {
+                category = "Snack";
+            }
+
+            IEnumerable<Menu> items = await menuTable
+              .Where(menuTable => menuTable.Category==category)
+              .ToEnumerableAsync();
+
+            return new List<Menu>(items);
         }
 
         //public async Task AddMenu(Menu menu)

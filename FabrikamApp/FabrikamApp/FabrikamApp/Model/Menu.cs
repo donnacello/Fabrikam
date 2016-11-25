@@ -17,6 +17,7 @@ namespace FabrikamApp.Model
         public string Description { get; set; }
         public string Category { get; set; }
         public double Price { get; set; }
+        public string Photo { get; set; }
         public bool deleted { get; set; }
     }
 }

@@ -2,24 +2,30 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FabrikamApp.View.MenuPage">
-  <!--Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" /-->
-  <!--add a few vertically-stacked controls to the page-->
-  
-  <StackLayout Spacing="0">
-    <Button Text="Click here for recommendations" TextColor="White" BackgroundColor="Green" Command="{Binding GoSuggestionsCommand}" />
-    <!--ListView that binds to the Menu collection to display all of the items. 
+  <ContentPage.Content>
+    <!--Label Text="{Binding MainText}" VerticalOptions="Center" HorizontalOptions="Center" /-->
+    <!--add a few vertically-stacked controls to the page-->
+    <StackLayout Spacing="0">
+      <Image Source="fabrikam_logo.png"/>
+      <ActivityIndicator x:Name="loading" Color="Teal" IsRunning="false" Grid.Row="0" />
+      <Grid>
+        <!--ListView that binds to the Menu collection to display all of the items. 
     We can use a special property called x:Name="" to name any control:-->
-    <ListView x:Name="ListViewMenu"
-                ItemsSource="Menu">
-      <!--Add ItemTemplate to describe what each item looks like-->
-      <ListView.ItemTemplate>
-        <DataTemplate>
-          <TextCell Text="{Binding Name}"
-                     Detail="{Binding Description}"/>
-        </DataTemplate>
-      </ListView.ItemTemplate>
-    </ListView>
-
-    
-  </StackLayout>
+        <ListView x:Name="ListViewMenu"
+                    ItemsSource="Menu">
+          <!--Add ItemTemplate to describe what each item looks like-->
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ImageCell Text="{Binding Name}"
+                         Detail="{Binding Description}"
+                         ImageSource="{Binding Photo}"/>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </Grid>
+      <Grid>
+        <Button Text="Click here for recommendations" TextColor="White" BackgroundColor="Teal" Clicked="rex_Clicked" />
+      </Grid>
+    </StackLayout>
+  </ContentPage.Content>
 </ContentPage>

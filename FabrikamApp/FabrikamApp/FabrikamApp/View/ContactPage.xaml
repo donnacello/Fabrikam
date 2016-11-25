@@ -1,27 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:FabrikamApp"
-             x:Class="FabrikamApp.HomePage">
+             x:Class="FabrikamApp.View.ContactPage">
   <ContentPage.Content>
-    <Grid>
-      <Image Source="fabrikam_bg.png" Aspect="AspectFill" />
       <!--add a few vertically-stacked controls to the page-->
       <StackLayout Spacing="0" VerticalOptions="Center">
         <!--Label Text="Welcome to FabrikamApp!" x:Name="welcomeText"/-->
         <Image Source="fabrikam_logo.png" />
         <!--add a Button that has a binding to the menucommand-->
         <!--Button x:Name="loginButton" Text="Sign-in" MinimumHeightRequest="30" Clicked="loginButton_Clicked"/-->
-        <Button x:Name="loginButton"
-                Text = "Login with Facebook"
-                   TextColor="White"
-                   BackgroundColor="#01579B"
-                   Clicked="loginButton_Clicked"/>
-        <Button Text="View Menu" Command="{Binding GoMenuCommand}"/>
-        <Button Text="Contact Us" TextColor="White" BackgroundColor="Green" Command="{Binding GoContactCommand}" />
+        <Label Text = "Mobile: +6421234567" HorizontalTextAlignment="Center"/>
+        <Label Text = "Email: info@fabrikam.com" HorizontalTextAlignment="Center"/>
         <!--display a loading bar when we are gathering data from the server-->
-        <ActivityIndicator IsRunning="{Binding IsBusy}" IsVisible="{Binding IsBusy}"/>
       </StackLayout>
-    </Grid>
   </ContentPage.Content>
 </ContentPage>
