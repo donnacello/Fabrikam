@@ -66,10 +66,10 @@ namespace FabrikamApp.Services
             return new List<Menu>(items);
         }
 
-        //public async Task AddMenu(Menu menu)
-        //{
-        //    await this.menuTable.InsertAsync(menu);
-        //}
+        public async Task AddMenu(Menu menu)
+        {
+            await this.menuTable.InsertAsync(menu);
+        }
 
         //public async Task UpdateMenu(Menu menu)
         //{
